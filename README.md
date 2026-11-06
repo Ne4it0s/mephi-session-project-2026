@@ -7,7 +7,6 @@
   - Динамическая адресация и имя хоста заданы в терминале уже запущенной ВМ.
   - Выход в Интернет подтверждается связностью с 8.8.8.8 (файл ping.out)
 
-)
 
 ##Раздел 2: Управление ПО
   - Обновление дистрибутива - 'dnf upgrade'
@@ -15,7 +14,6 @@
   - Скачивание tcpdump без установки - 'dnf download tcpdump --destdir=/tmp'
   - Установка через rpm - 'rpm -ivh /tmp/tcpdump-*.x86_64.rpm'
 
-)
 
 ##Раздел 3: Управление ФС
   - Отключив ВМ, создается новый vdi
@@ -24,13 +22,11 @@
   - Добавление диска в автомонтирование - 'echo "LABEL=MEPHI_WEB /mephi-web ext4 defaults 0 2" >> /etc/fstab'
   - Ручное монтирование диска - 'mount /mephi-web'
 
-)
 
 ##Раздел 4: Управление сервисами
   - Добавление nginx в автозагрузку и ручной запуск - 'systemctl enable --now nginx'
   - Поиск логов, связанных с nginx - 'journalctl -u nginx -b > journalctl.out'
 
-)
 
 ##Раздел 6: Аутентификация
   - Раздел выполнен раньше, чтобы пользователи созданные в разделе 5 получали необходимые параметры автоматически.
@@ -39,7 +35,6 @@
   - Запрет локального входа группе curators - 'echo "-:(curators):LOCAL" >> /etc/security/access.conf 
                                             sed -i '/^account.*include.*system-auth/i account required pam_access.so' /etc/pam.d/login'
 
-)
 
 ##Раздел 5: Управление доступом
   - Создание группы с конкретным GID - 'groupadd curators -g 4444'
